@@ -17,7 +17,7 @@
 
 CRGB leds[LED_COUNT];
 char printf_buffer[32];
-long led_hours[12];
+long led_dial[12];
 
 void setup() { 
   Serial.begin (115200);
@@ -26,7 +26,7 @@ void setup() {
 
   // LEDs für "Zifferblatt" abhängig von der Anzahl der LEDs berechen.
   for(int i = 0; i < 12; i++){
-    led_hours[i] = LO(map(i*5, 0, 59, 0, LED_COUNT - 1));
+    led_dial[i] = LO(map(i*5, 0, 59, 0, LED_COUNT - 1));
   }
   
   WiFi.begin (WIFI_SSID, WIFI_PASSWD);
@@ -64,18 +64,18 @@ void loop() {
   uint8_t s_val = map(ms, 0, 999, 0, 255);
   uint8_t u_val = 255;
  
-  leds[led_hours[0]]  = CHSV(0, 0, 32);
-  leds[led_hours[1]]  = CHSV(0, 0, 8);
-  leds[led_hours[2]]  = CHSV(0, 0, 8);
-  leds[led_hours[3]]  = CHSV(0, 0, 32);
-  leds[led_hours[4]]  = CHSV(0, 0, 8);
-  leds[led_hours[5]]  = CHSV(0, 0, 8);
-  leds[led_hours[6]]  = CHSV(0, 0, 32);
-  leds[led_hours[7]]  = CHSV(0, 0, 8);
-  leds[led_hours[8]]  = CHSV(0, 0, 8);
-  leds[led_hours[9]]  = CHSV(0, 0, 32);
-  leds[led_hours[10]] = CHSV(0, 0, 8);
-  leds[led_hours[11]] = CHSV(0, 0, 8);
+  leds[led_dial[0]]  = CHSV(0, 0, 32);
+  leds[led_dial[1]]  = CHSV(0, 0, 8);
+  leds[led_dial[2]]  = CHSV(0, 0, 8);
+  leds[led_dial[3]]  = CHSV(0, 0, 32);
+  leds[led_dial[4]]  = CHSV(0, 0, 8);
+  leds[led_dial[5]]  = CHSV(0, 0, 8);
+  leds[led_dial[6]]  = CHSV(0, 0, 32);
+  leds[led_dial[7]]  = CHSV(0, 0, 8);
+  leds[led_dial[8]]  = CHSV(0, 0, 8);
+  leds[led_dial[9]]  = CHSV(0, 0, 32);
+  leds[led_dial[10]] = CHSV(0, 0, 8);
+  leds[led_dial[11]] = CHSV(0, 0, 8);
 
   if(last_synced != 0){
     // Stunden
