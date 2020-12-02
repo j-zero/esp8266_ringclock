@@ -1,7 +1,8 @@
 #include <Arduino.h>
-#include <FastLED.h>
-#include <ESPNtpClient.h>
 #include <ESP8266WiFi.h>
+
+#include <FastLED.h>      // https://github.com/FastLED/FastLED
+#include <ESPNtpClient.h> // https://github.com/gmag11/ESPNtpClient
 
 #include "WifiConfig.h"
 
